@@ -25,7 +25,6 @@ class ReadRss:
                 print(e)
 
     def parse_articles(self):
-        
         all_articles = []
 
         for key,value in self.reponse_objects.items():
@@ -77,8 +76,3 @@ class ReadRss:
                 output_list.extend(list)
             dataframe = pd.DataFrame(output_list)
         return dataframe
- 
-if __name__ == '__main__':
- 
-    feed = ReadRss()
-    print(feed.parse_articles())
