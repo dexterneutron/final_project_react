@@ -1,10 +1,11 @@
 from extraction import ReadRss
 from validation import validate_data
-
+import sqlalchemy
+import pandas as pd
 
 if __name__ == '__main__':
 
-#data extraction
+#Data extraction
     reader = ReadRss()
     articles = reader.parse_articles()
     if articles.notnull:
@@ -17,3 +18,13 @@ if __name__ == '__main__':
         print("Data validated")
     else:
         raise Exception("Data validation error")
+
+#Data Loading
+    try:
+        engine = sqlalchemy.create_engine('sqlite:///articles.sqlite')
+        articles['downloaded_at'] = pd.to_datetime("today")
+        articles.to_sql('articles',engine, index=False, if_exists='replace')
+        print("Data loaded")
+    except Exception:
+        print("Error Loading")
+

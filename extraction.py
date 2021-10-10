@@ -35,7 +35,6 @@ class ReadRss:
                     articles = soup.findAll('entry')
                     articles_dicts = [{'source':'The Verge',
                     'title':a.find('title').getText(),
-                    'published':a.find('published').getText(),
                     'id':a.find('id').getText(),
                     } for a in articles]
                     all_articles.append(articles_dicts)
@@ -49,7 +48,6 @@ class ReadRss:
                     articles = soup.findAll('item')
                     articles_dicts = [{'source':'Techcrunch',
                     'title':a.find('title').text,
-                    'published':a.find('pubDate').text,
                     'id':a.find('link').text
                     } for a in articles]
                     all_articles.append(articles_dicts)
@@ -63,7 +61,6 @@ class ReadRss:
                     articles = soup.findAll('item')
                     articles_dicts = [{'source':'Mashable',
                     'title':a.find('title').text,
-                    'published':a.find('pubDate').text,
                     'id':a.find('link').text
                     } for a in articles]
                     all_articles.append(articles_dicts)
