@@ -3,8 +3,7 @@ from validation import validate_data
 import sqlalchemy
 import pandas as pd
 
-if __name__ == '__main__':
-
+def run_etl():
 #Data extraction
     reader = ReadRss()
     articles = reader.parse_articles()
@@ -28,3 +27,4 @@ if __name__ == '__main__':
     except Exception:
         print("Error Loading")
 
+run_etl()
