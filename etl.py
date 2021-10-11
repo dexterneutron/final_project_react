@@ -11,13 +11,11 @@ def run_etl():
         print("Data extracted")
     else:
         raise Exception("Error extacting data")
-
 #Data validation
     if validate_data(articles):
         print("Data validated")
     else:
         raise Exception("Data validation error")
-
 #Data Loading
     try:
         engine = sqlalchemy.create_engine('sqlite:///articles.sqlite')
