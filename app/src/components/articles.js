@@ -13,30 +13,8 @@ import React from 'react'
             </a>
             </div>
         ))}
-    </div>
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+    </div>             
      )
-
-
-
-
-
-
-
-
-
     };
 
     export default Articles
