@@ -2,7 +2,7 @@ version: "3.8"
 services:
   app:
     container_name: app-dev
-    image: app-dev
+    image: app-dev:latest
     build:
       context: ./app/
       target: development
@@ -12,7 +12,7 @@ services:
       - 3000:3000
   api:
         container_name: api-dev
-        image: api-dev
+        image: api-dev:latest
         build: ./api/
         volumes: 
             - ./api/:/usr/src/app/
