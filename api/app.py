@@ -9,7 +9,6 @@ class Config:
 
 app = Flask(__name__)
 app.config.from_object(Config())
-
 CORS(app)
 
 scheduler = APScheduler()
@@ -21,7 +20,7 @@ def retrive_data():
     data = get_articles()
     return jsonify(data)
 
-@scheduler.task('interval', id='update_from_source', seconds=60, misfire_grace_time=900)
+@scheduler.task('interval', id='update_from_source', seconds=300, misfire_grace_time=900)
 def update_from_source():
     try:
         run_etl()
